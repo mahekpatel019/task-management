@@ -149,7 +149,6 @@ class TasksPage extends StatelessWidget {
             const SizedBox(height: 24),
             ElevatedButton.icon(
               onPressed: () {
-                // TODO: Implement retry functionality
               },
               icon: const Icon(Icons.refresh),
               label: const Text('Try Again'),

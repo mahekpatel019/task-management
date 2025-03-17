@@ -33,8 +33,6 @@ class TaskListItem extends StatelessWidget {
       ),
     );
   }
-
-  // In task_list_item.dart update the _toggleFavourite method
   void _toggleFavourite(BuildContext context) {
     final bloc = context.read<TaskBloc>();
     final updatedTask = task.copyWith(isFavourite: !task.isFavourite);

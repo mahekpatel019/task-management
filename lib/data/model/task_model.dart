@@ -1,5 +1,4 @@
 import 'package:task_management/domain/entities/task.dart';
-
 class TaskModel {
   final int taskId;
   final String taskName;
@@ -16,26 +15,22 @@ class TaskModel {
     required this.createdDate,
     required this.updatedDate,
   });
-
-  /// Factory constructor to create TaskModel from JSON
   factory TaskModel.fromJson(Map<String, dynamic> json) {
     return TaskModel(
-      taskId: json['task_id'] ?? 0, // Default to 0 if missing
+      taskId: json['task_id'] ?? 0,
       taskName: json['task_name'] ?? 'Untitled Task',
       taskDetails: json['task_details'] ?? '',
-      isFavourite: (json['is_favourite'] as bool?) ?? false, // Ensure bool type
+      isFavourite: (json['is_favourite'] as bool?) ?? false,
       createdDate:
           json['created_date'] != null
               ? DateTime.tryParse(json['created_date']) ?? DateTime.now()
-              : DateTime.now(), // Handle null or invalid date
+              : DateTime.now(),
       updatedDate:
           json['updated_date'] != null
               ? DateTime.tryParse(json['updated_date']) ?? DateTime.now()
               : DateTime.now(),
     );
   }
-
-  /// Convert TaskModel to JSON
   Map<String, dynamic> toJson() {
     return {
       'task_id': taskId,
@@ -46,8 +41,6 @@ class TaskModel {
       'updated_date': updatedDate.toIso8601String(),
     };
   }
-
-  /// Convert TaskModel to Task entity
   Task toEntity() {
     return Task(
       id: taskId,
@@ -58,8 +51,6 @@ class TaskModel {
       updatedDate: updatedDate,
     );
   }
-
-  /// **Copy with method to update specific fields**
   TaskModel copyWith({
     int? taskId,
     String? taskName,

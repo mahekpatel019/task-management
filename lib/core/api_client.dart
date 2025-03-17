@@ -1,10 +1,8 @@
-// core/api_client.dart
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:task_management/data/model/task_model.dart';
-
-// core/api_client.dart
 class ApiClient {
   final _client = http.Client();
   final _baseUrl = 'https://hushed-foggy-dollar.glitch.me/api';
@@ -27,12 +25,11 @@ class ApiClient {
         body: json.encode(taskData),
       );
 
-      print('Response: ${response.body}'); // Debug response
+      debugPrint('Response: ${response.body}');
 
       if (response.statusCode == 200) {
         final responseBody = json.decode(response.body);
         if (!responseBody.containsKey('task')) {
-          // Check response structure
           throw Exception('Invalid API response format: ${response.body}');
         }
         return TaskModel.fromJson(responseBody['task']);

@@ -5,7 +5,6 @@ import 'package:task_management/data/repositories/task_repository_impl.dart';
 import 'package:task_management/domain/repositories/task_repository.dart';
 import 'package:task_management/presentation/bloc/task_bloc/task_bloc.dart';
 import 'package:task_management/presentation/bloc/task_bloc/task_event.dart';
-import 'package:task_management/presentation/pages/add_edit_task_page.dart';
 import 'package:task_management/presentation/pages/tasks_page.dart';
 
 void main() {

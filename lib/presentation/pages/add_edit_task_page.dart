@@ -1,5 +1,3 @@
-// presentation/pages/add_edit_task_page.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_management/data/model/task_model.dart';
@@ -7,7 +5,6 @@ import 'package:task_management/domain/entities/task.dart';
 import 'package:task_management/presentation/bloc/task_bloc/task_bloc.dart';
 import 'package:task_management/presentation/bloc/task_bloc/task_event.dart';
 
-// presentation/pages/add_edit_task_page.dart
 class AddEditTaskPage extends StatefulWidget {
   final Task? task;
 
@@ -74,7 +71,7 @@ class _AddEditTaskPageState extends State<AddEditTaskPage> {
   void _saveTask() {
     if (_formKey.currentState!.validate()) {
       final taskModel = TaskModel(
-        taskId: widget.task?.id ?? 0, // Ensure non-null ID
+        taskId: widget.task?.id ?? 0,
         taskName: _nameController.text,
         taskDetails: _detailsController.text,
         isFavourite: _isFavourite,
@@ -82,9 +79,7 @@ class _AddEditTaskPageState extends State<AddEditTaskPage> {
         updatedDate: DateTime.now(),
       );
 
-      print('Saving Task: ${taskModel.toJson()}'); // Debug JSON before sending
-
-      // Convert TaskModel to Task using `toEntity()`
+      debugPrint('Saving Task: ${taskModel.toJson()}');
       final taskEntity = taskModel.toEntity();
 
       context.read<TaskBloc>().add(SaveTask(taskEntity));

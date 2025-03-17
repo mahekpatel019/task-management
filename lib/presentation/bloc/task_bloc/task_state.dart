@@ -1,4 +1,3 @@
-// presentation/bloc/task_bloc/task_state.dart
 import 'package:task_management/domain/entities/task.dart';
 
 abstract class TaskState {}
@@ -20,7 +19,6 @@ class TaskError extends TaskState {
 
   TaskError(this.message);
 
-  @override
   List<Object?> get props => [message];
 }
 
